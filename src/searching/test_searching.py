@@ -17,6 +17,7 @@ class SearchingTests(unittest.TestCase):
         arr2 = []
 
         self.assertEqual(binary_search(arr1, -8), 1)
+        self.assertEqual(binary_search(arr1, 9), 13)
         self.assertEqual(binary_search(arr1, 0), 6)
         self.assertEqual(binary_search(arr2, 6), -1)
         self.assertEqual(binary_search(arr2, 0), -1)

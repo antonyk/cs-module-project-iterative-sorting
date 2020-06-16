@@ -13,16 +13,19 @@ def binary_search(arr, target):
     # if smaller, return left half
     # else return right target
     # if at the end, return false
+    # count = 0
 
     left_idx = 0
     right_idx = len(arr)-1
     # length = len(arr)
-    while right_idx - left_idx > 0:
+    while right_idx - left_idx >= 0:
+        # count += 1
+        # print(count)
         mid_idx = (left_idx + right_idx) // 2
         if arr[mid_idx] > target:
-            right_idx = mid_idx
+            right_idx = mid_idx - 1
         elif arr[mid_idx] < target:
-            left_idx = mid_idx
+            left_idx = mid_idx + 1
         else:
             return mid_idx
 
