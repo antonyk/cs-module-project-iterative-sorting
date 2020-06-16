@@ -7,18 +7,15 @@ def selection_sort(arr):
     if len(arr) > 1:
         # loop through n-1 elements
         # for i in range(len(arr)):
-        for i in range(0, len(arr)):
+        for cur_index in range(0, len(arr)):
             # TO-DO: find next smallest element
             # (hint, can do in 3 loc)
-            # Your code here
-            cur_index = i
             smallest_index = cur_index
-            for x in range(cur_index, len(arr)):
-                if  arr[x] < arr[smallest_index]:
-                    smallest_index = x
+            for new_index in range(cur_index, len(arr)):
+                if  arr[new_index] < arr[smallest_index]:
+                    smallest_index = new_index
 
             # TO-DO: swap
-            # Your code here
             if smallest_index != cur_index:
                 arr[cur_index], arr[smallest_index] = arr[smallest_index], arr[cur_index]
 
@@ -67,6 +64,7 @@ What is the time and space complexity of the counting sort algorithm?
 '''
 def counting_sort(arr, maximum=None):
     # Your code here
+
 
 
     return arr
