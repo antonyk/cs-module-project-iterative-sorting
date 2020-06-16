@@ -1,29 +1,52 @@
 # TO-DO: Complete the selection_sort() function below
 def selection_sort(arr):
-    # loop through n-1 elements
-    for i in range(0, len(arr) - 1):
-        cur_index = i
-        smallest_index = cur_index
-        # TO-DO: find next smallest element
-        # (hint, can do in 3 loc)
-        # Your code here
 
+# Note: Original baseline code looked wrong.
+# What is the implementation if we use it?
 
-        # TO-DO: swap
-        # Your code here
+    if len(arr) > 1:
+        # loop through n-1 elements
+        # for i in range(len(arr)):
+        for cur_index in range(0, len(arr)):
+            # TO-DO: find next smallest element
+            # (hint, can do in 3 loc)
+            smallest_index = cur_index
+            for new_index in range(cur_index, len(arr)):
+                if  arr[new_index] < arr[smallest_index]:
+                    smallest_index = new_index
+
+            # TO-DO: swap
+            if smallest_index != cur_index:
+                arr[cur_index], arr[smallest_index] = arr[smallest_index], arr[cur_index]
 
     return arr
 
 
 # TO-DO:  implement the Bubble Sort function below
 def bubble_sort(arr):
+    # Two specific optimizations to improve on the O(n^2) worst case:
+    # 1. Stop sorting if no changes were made in a single iteration
+    # 2. Shorten length of each iteration because it will always bubble the biggest to the right
+    if len(arr) > 1:
+        sort_start = 1
+        end_offset = 0
+        changed = True
+        while end_offset < (len(arr) - sort_start) and changed:
+            changed = False
+            for i in range(sort_start, len(arr)-end_offset):
+                if arr[i] < arr[i-1]:
+                    arr[i], arr[i-1] = arr[i-1], arr[i] # swaps
+                    changed = True
+
+            end_offset += 1 # shorten array to be sorted
+            
     # Your code here
 
 
     return arr
 
 '''
-STRETCH: implement the Count Sort function below
+STRETCH: implement the Counting Sort function below
 
 Counting sort is a sorting algorithm that works on a set of data where
 we specifically know the maximum value that can exist in that set of
@@ -43,4 +66,9 @@ def counting_sort(arr, maximum=None):
     # Your code here
 
 
+
     return arr
+
+
+
+
